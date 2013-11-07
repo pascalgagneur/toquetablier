@@ -104,6 +104,13 @@
             <span class="adr locality">Montréal</span>
             <span class="tel value">514 273-6561</span>
           </li>
+            <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">DÉPANNEUR PELUSO</span>
+            <span class="adr street-address">2500 rue Rachel Est</span>
+            <span class="adr locality">Montréal</span>
+            <span class="tel value">514 525-1203</span>
+          </li>
         </ul>
         <h2>Laval</h2>
         <ul>
@@ -188,6 +195,41 @@
             <span class="adr street-address">7200 boulevard Le Quartier</span>
             <span class="adr locality">Brossard</span>
             <span class="tel value">450 443-4344</span>
+          </li>
+            <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN DU MONT</span>
+            <span class="adr street-address">252 rue Denison Est</span>
+            <span class="adr locality">Granby</span>
+            <span class="tel value">450 375-3941</span>
+          </li>
+          <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN DU MONT</span>
+            <span class="adr street-address">794 rue Principale</span>
+            <span class="adr locality">Granby</span>
+            <span class="tel value">450 375-3941</span>
+          </li>           
+           <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">AVRIL</span>
+            <span class="adr street-address">11 rue Évangeline</span>
+            <span class="adr locality">Granby</span>
+            <span class="tel value">450 994-4794</span>
+          </li>
+           <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">FROMAGERIE RUBAN BLEU</span>
+            <span class="adr street-address">14 rang St-Charles</span>
+            <span class="adr locality">Mercier</span>
+            <span class="tel value">450 691-2929</span>
+          </li>
+           <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">AMANDINE GOURMANDE</span>
+            <span class="adr street-address">414 avenue Victoria</span>
+            <span class="adr locality">Saint-Lambert</span>
+            <span class="tel value">450 671-4906</span>
           </li>
         </ul>
         <h2>Lanaudière</h2>
@@ -301,17 +343,40 @@
             <span class="tel value">418 725-5707</span>
           </li>
         </ul>
+        <h2>Saguenay-<br>Lac-St-Jean</h2>
+        <ul>
+          <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">CORNEAU CANTIN</span>
+            <span class="adr street-address">2000 boulevard Talbot</span>
+            <span class="adr locality">Chicoutimi</span>
+            <span class="tel value">418 698-9556</span>
+          </li>
+          </ul>
+          <h2>Îles-de-la-Madeleine</h2>
+        <ul>
+          <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">GOURMANDE DE NATURE</span>
+            <span class="adr street-address">1912 chemin de l'Étang-du-nord</span>
+            <span class="adr locality">Îles-de-la-Madeleine</span>
+            <span class="tel value">418 986-6767</span>
+          </li>
+          </ul>
+            <h2>Ontario</h2>
+        <ul>
+          <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">PÊCHE &amp; POIVRE / <br>SWEET TO SAVORY</span>
+            <span class="adr street-address">89 Mill street</span>
+            <span class="adr locality">Almonte</span>
+            <span class="tel value">613 256-5764</span>
+          </li>
+          </ul>
       </div>
       <div class="retailers-adress">
         <h2>Estrie</h2>
         <ul>
-          <li class="vcard">
-            <span class="title hidden">Détaillants de Toque et Tablier</span>
-            <span class="org fn">LE PANIER CHAMPÊTRE</span>
-            <span class="adr street-address">4 chemin du Mont-Écho</span>
-            <span class="adr locality">Lac Brome</span>
-            <span class="tel value">450 242-2758</span>
-          </li>
           <li class="vcard">
             <span class="title hidden">Détaillants de Toque et Tablier</span>
             <span class="org fn">LA RUMEUR AFFAMÉE</span>
@@ -349,27 +414,6 @@
           </li> 
           <li class="vcard">
             <span class="title hidden">Détaillants de Toque et Tablier</span>
-            <span class="org fn">LES DÉLICES D’ELLIOT</span>
-            <span class="adr street-address">142 Rue Principale</span>
-            <span class="adr locality">Granby</span>
-            <span class="tel value">450 378-2233</span>
-          </li>
-          <li class="vcard">
-            <span class="title hidden">Détaillants de Toque et Tablier</span>
-            <span class="org fn">JARDIN DU MONT</span>
-            <span class="adr street-address">252 rue Denison Est</span>
-            <span class="adr locality">Granby</span>
-            <span class="tel value">450 375-3941</span>
-          </li>
-          <li class="vcard">
-            <span class="title hidden">Détaillants de Toque et Tablier</span>
-            <span class="org fn">JARDIN DU MONT</span>
-            <span class="adr street-address">794 rue Principale</span>
-            <span class="adr locality">Granby</span>
-            <span class="tel value">450 375-3941</span>
-          </li>
-           <li class="vcard">
-            <span class="title hidden">Détaillants de Toque et Tablier</span>
             <span class="org fn">LE MARCHÉ VÉGÉTARIEN</span>
             <span class="adr street-address">930 Principale Ouest</span>
             <span class="adr locality">Magog</span>
@@ -390,6 +434,30 @@
             <span class="tel value">819 823-7646</span>
           </li>                     
         </ul>
+        <h2>Outaouais</h2>
+        <ul>
+          <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">LA TRAPPE À FROMAGE</span>
+            <span class="adr street-address">200 rue Bellehumeur</span>
+            <span class="adr locality">Gatineau</span>
+            <span class="tel value">819 243-6411</span>
+          </li>
+          <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">LA TRAPPE À FROMAGE</span>
+            <span class="adr street-address">114 boulevard Saint-Raymond</span>
+            <span class="adr locality">Gatineau</span>
+            <span class="tel value">819 243-6411</span>
+          </li>
+          <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">LA TRAPPE À FROMAGE</span>
+            <span class="adr street-address">121A rue Georges</span>
+            <span class="adr locality">Gatineau</span>
+            <span class="tel value">819 986-5299</span>
+          </li>        
+      </ul>
       </div>
       <div class="retailers-adress">
         <h2>Québec</h2>
@@ -419,7 +487,7 @@
             <span class="title hidden">Détaillants de Toque et Tablier</span>
             <span class="org fn">JARDIN MOBILE</span>
             <span class="adr street-address">811 route Jean-Gauvin</span>
-            <span class="adr locality">Québec</span>
+            <span class="adr locality">Sainte-Foy</span>
             <span class="tel value">418 872-7473</span>
           </li>
            <li class="vcard">
@@ -433,40 +501,114 @@
             <span class="title hidden">Détaillants de Toque et Tablier</span>
             <span class="org fn">JARDIN MOBILE</span>
             <span class="adr street-address">1363 avenue Maguire</span>
-            <span class="adr locality">Québec</span>
+            <span class="adr locality">Sillery</span>
             <span class="tel value">418 688-7727</span>
           </li>                    
-        </ul>
-        <h2>Saguenay-<br>Lac-St-Jean</h2>
-        <ul>
           <li class="vcard">
             <span class="title hidden">Détaillants de Toque et Tablier</span>
-            <span class="org fn">CORNEAU CANTIN</span>
-            <span class="adr street-address">2000 boulevard Talbot</span>
-            <span class="adr locality">Chicoutimi</span>
-            <span class="tel value">418 698-9556</span>
-          </li>
-          </ul>
-          <h2>Îles-de-la-Madeleine</h2>
-        <ul>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">2065 boulevard Bastien</span>
+            <span class="adr locality">Neufchâtel</span>
+            <span class="tel value">418 842-3084</span>
+          </li>                    
           <li class="vcard">
             <span class="title hidden">Détaillants de Toque et Tablier</span>
-            <span class="org fn">GOURMANDE DE NATURE</span>
-            <span class="adr street-address">1912 chemin de l'Étang-du-nord</span>
-            <span class="adr locality">Îles-de-la-Madeleine</span>
-            <span class="tel value">418 986-6767</span>
-          </li>
-          </ul>
-            <h2>Ontario</h2>
-        <ul>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">11047 boulevard Henri-Bourassa</span>
+            <span class="adr locality">Charlesbourg</span>
+            <span class="tel value">418 627-0344</span>
+          </li>                    
           <li class="vcard">
             <span class="title hidden">Détaillants de Toque et Tablier</span>
-            <span class="org fn">PÊCHE &amp; POIVRE / <br>SWEET TO SAVORY</span>
-            <span class="adr street-address">89 Mill street</span>
-            <span class="adr locality">Almonte</span>
-            <span class="tel value">613 256-5764</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">3440 rue de la Pérade</span>
+            <span class="adr locality">Sainte-Foy</span>
+            <span class="tel value">418 657-7717</span>
           </li>
-          </ul>
+            <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">9210 boulevard de l'Ormière</span>
+            <span class="adr locality">Neufchâtel</span>
+            <span class="tel value">418 842-0909</span>
+          </li>
+            <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">51 route du président Kennedy</span>
+            <span class="adr locality">Lévis</span>
+            <span class="tel value">418 835-5526</span>
+          </li>
+          <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">344 rue Seigneuriale</span>
+            <span class="adr locality">Beauport</span>
+            <span class="tel value">418 661-7997</span>
+          </li>
+          <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">2485 boulevard Sainte-Anne</span>
+            <span class="adr locality">Quebec</span>
+            <span class="tel value">418 660-8827</span>
+          </li>
+         <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">835 4e avenue</span>
+            <span class="adr locality">Saint-Romuald</span>
+            <span class="tel value">418 834-3232</span>
+          </li>
+        <li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">585 route 116</span>
+            <span class="adr locality">Saint-Nicolas</span>
+            <span class="tel value">418 831-4611</span>
+          </li>
+<li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">2700 chemin Sainte-Foy</span>
+            <span class="adr locality">Sainte-Foy</span>
+            <span class="tel value">418 651-2717</span>
+          </li>
+<li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">4145 1ère avenue</span>
+            <span class="adr locality">Charlesbourg</span>
+            <span class="tel value">418 622-2291</span>
+          </li>
+<li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">1860 avenue Industrielle</span>
+            <span class="adr locality">Val-Bélair</span>
+            <span class="tel value">418 847-0002</span>
+          </li>
+<li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">2800 avenue Saint-Jean-Baptiste</span>
+            <span class="adr locality">Québec</span>
+            <span class="tel value">418 861-8686</span>
+          </li>
+<li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">2600 boulevard Laurier</span>
+            <span class="adr locality">Québec</span>
+            <span class="tel value">418 658-4253</span>
+          </li>
+<li class="vcard">
+            <span class="title hidden">Détaillants de Toque et Tablier</span>
+            <span class="org fn">JARDIN MOBILE</span>
+            <span class="adr street-address">1279 boulevard Louis XIV</span>
+            <span class="adr locality">Québec</span>
+            <span class="tel value">418 780-2359</span>
+          </li>
         
-        
-      </div>  
+        </ul>               
+          </div>  
