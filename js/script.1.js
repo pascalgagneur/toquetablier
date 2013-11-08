@@ -20,10 +20,12 @@ var initMap;
         $retailersAdress.find('h2').each(function () {
             $select.append('<option>' + $(this).text() );
         });
-        $retailersAdress.find('h2,ul').hide();
-        $select.on('change', function () {
-            $("h2:contains('" + $('#filter option:selected').text() + "')").find('~ul').slideToggle();
-        });
+        function filterRetail() {
+            $retailersAdress.find('h2,ul').hide();
+            $("h2:contains('" + $('#filter option:selected').text() + "')").slideToggle().find('~ul').slideToggle();
+        }
+        $select.on('change', filterRetail);
+        filterRetail();
 
         $('#products').find('h2').click(function() {
             $(this).next().slideToggle('fast');
