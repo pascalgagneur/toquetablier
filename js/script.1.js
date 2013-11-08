@@ -4,16 +4,18 @@ var initMap;
 (function($, log) {
     "use strict";
     $(document).ready(function() {
-        var ignore = /mobile/i.test(navigator.userAgent) && !location.hash && setTimeout(function () {
-            if (!window.pageYOffset) {
-                window.scrollTo(0, 1);
-            }
-        }, 1000);
-
         $('nav').localScroll();
 
         var $select = $('<select>'),
             $retailersAdress = $('.retailers-adress');
+
+        if (/mobile/i.test(navigator.userAgent) && !location.hash) {
+            setTimeout(function () {
+                if (!window.pageYOffset) {
+                    window.scrollTo(0, 1);
+                }
+            }, 1000);
+        }
 
         $select.attr('id', 'filter' );
         $retailersAdress.first().before($select);
@@ -33,11 +35,13 @@ var initMap;
         });
 
         function initCarousel() {
-            var $banner = $("#banner");
-            var bannerSize = $banner.find("li").size();
+            var $banner = $("#banner"),
+            bannerSize = $banner.find("li").size(),
+            btnGoArray = [],
+            i;
             if (bannerSize > 1) {
-                var btnGoArray = [];
-                for (var i=0; i < bannerSize; i++) {
+
+                for (i=0; i < bannerSize; i++) {
                     btnGoArray[i] = ".nav-item-"+i;
                 }
                 $banner.jCarouselLite({
@@ -74,14 +78,14 @@ var initMap;
                     'http://maps.google.se/maps/ms?ie=UTF8&hl=sv&vps=1&jsv=284c&oe=UTF8&msa=0&msid=210826295852231512346.0004aba22f40da572eb9a&output=kml',{  map: map});
 
             google.maps.event.addListener(nyLayer, 'click', function(kmlEvent) {
-                var text = kmlEvent.featureData.description;
+                //var text = kmlEvent.featureData.description;
                 log(kmlEvent.featureData);
             });
 
-            function showInContentWindow(text) {
+            /*function showInContentWindow(text) {
                 var sidediv = document.getElementById('content_window');
                 sidediv.innerHTML = text;
-            }
+            }*/
         }
 
 

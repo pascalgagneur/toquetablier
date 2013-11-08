@@ -1,6 +1,6 @@
 #Toque Tablier version 2.0
 
-![Image](../blob/master/img/distingue1.jpg?raw=true)
+![Image](../master/img/distingue1.jpg?raw=true)
 
 ## Instructions
 

@@ -25,6 +25,9 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
             all: ['js/script.1.js']
         },
         copy: {
@@ -56,7 +59,7 @@ module.exports = function(grunt) {
                             '/* <%= concat.js.src.join(", ").match(/(?:\\/([^,\/]+\\.js))/g).join(\', \').replace(/\\//g, "") %> */\n\n'
                 },
                 files: {
-                    '<%= pkg.target %>/js/spl-min.js': ['<%= pkg.target %>/js/spl.js']
+                    'js/script.<%= pkg.version %>.js': 'js/script.1.js'
                 }
             },
 
@@ -103,9 +106,9 @@ module.exports = function(grunt) {
             "uglify" : false,
 
             // Define any tests you want to implicitly include.
-            "tests" : [
+            /*"tests" : [
                     ],
-
+            */
             // By default, this task will crawl your project for references to Modernizr tests.
             // Set to false to disable.
             "parseFiles" : true,
@@ -120,7 +123,7 @@ module.exports = function(grunt) {
 
             // Have custom Modernizr tests? Add paths to their location here.
             "customTests" : []
-        },
+        }
 
 
 
