@@ -12,13 +12,26 @@ var initMap;
 
         $('nav').localScroll();
 
+        var $select = $('<select>'),
+            $retailersAdress = $('.retailers-adress');
+
+        $select.attr('id', 'filter' );
+        $retailersAdress.first().before($select);
+        $retailersAdress.find('h2').each(function () {
+            $select.append('<option>' + $(this).text() );
+        });
+        $retailersAdress.find('h2,ul').hide();
+        $select.on('change', function () {
+            $("h2:contains('" + $('#filter option:selected').text() + "')").find('~ul').slideToggle();
+        });
+
         $('#products').find('h2').click(function() {
             $(this).next().slideToggle('fast');
             return false;
         });
 
         function initCarousel() {
-            var $banner =$("#banner");
+            var $banner = $("#banner");
             var bannerSize = $banner.find("li").size();
             if (bannerSize > 1) {
                 var btnGoArray = [];
