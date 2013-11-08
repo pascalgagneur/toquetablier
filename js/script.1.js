@@ -6,8 +6,6 @@ var initMap;
     $(document).ready(function() {
         $('nav').localScroll();
 
-        var $select = $('<select>'),
-            $retailersAdress = $('.retailers-adress');
 
         if (/mobile/i.test(navigator.userAgent) && !location.hash) {
             setTimeout(function () {
@@ -16,18 +14,33 @@ var initMap;
                 }
             }, 1000);
         }
+        function createRetailSelector() {
+            var $select,
+                NO_FILTER = 'Tous',
+                $retailersAdress = $('.retailers-adress');
 
-        $select.attr('id', 'filter' );
-        $retailersAdress.first().before($select);
-        $retailersAdress.find('h2').each(function () {
-            $select.append('<option>' + $(this).text() );
-        });
-        function filterRetail() {
-            $retailersAdress.find('h2,ul').hide();
-            $("h2:contains('" + $('#filter option:selected').text() + "')").slideToggle().find('~ul').slideToggle();
+            $select = $('<select>');
+            $select.attr('id', 'filter' );
+            $select.append('<option>' + NO_FILTER );
+
+            $retailersAdress.find('h2').each(function () {
+                $select.append('<option>' + $(this).text() );
+            });
+            $retailersAdress.first().before($select);
+
+            function filterRetail() {
+                var selectedValue = $('#filter').find('option:selected').text();
+                if (selectedValue === NO_FILTER) {
+                    $retailersAdress.find('h2,ul').show();
+                } else {
+                    $retailersAdress.find('h2,ul').hide();
+                    $("h2:contains('" + selectedValue + "')").slideToggle().find('~ul').slideToggle();
+                }
+            }
+            $select.on('change', filterRetail);
+            filterRetail();
         }
-        $select.on('change', filterRetail);
-        filterRetail();
+        createRetailSelector();
 
         $('#products').find('h2').click(function() {
             $(this).next().slideToggle('fast');
