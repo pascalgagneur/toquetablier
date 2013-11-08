@@ -313,7 +313,9 @@ section ul {
 .vcard .postal-code {
    display: inline;
 }
-
+#filter{
+    width: 100%;
+}
 #retailers h2{
   border-bottom: 1px solid;
   padding-bottom: 3px;
