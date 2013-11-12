@@ -28,10 +28,12 @@
         <a href="#start" class="logo">Touque &amp; Tablier</a>
         <ul id="nav">
             <li><a href="#products">Produits</a></li>
+            <li><a href="#conseils">Conseils</a></li>
             <li><a href="#history">Historique</a></li>
             <li><a href="#retailers">Détaillants</a></li>
             <li><a href="#media">Distinctions</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a class="icon-fb" href="https://www.facebook.com/pages/Toque-et-Tablier/223289924385467" target="facebook">Facebook</a></li>
         </ul>
     </nav>
 </header>
@@ -40,8 +42,12 @@
         <?php include_once('banner.html.php') ?>
     </section>
     <?php flush(); ?>
+    conseils
     <section id="products">
         <?php include_once('products.html.php') ?>
+    </section>
+    <section id="conseils">
+        <?php include_once('conseils.html.php') ?>
     </section>
     <section id="history">
         <?php include_once("history.html.php"); ?>

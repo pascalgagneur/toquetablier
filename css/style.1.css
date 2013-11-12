@@ -52,7 +52,7 @@ pre { padding: 15px; white-space: pre; white-space: pre-wrap; white-space: pre-l
 
 input[type="radio"] { vertical-align: text-bottom; }
 input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
-.ie6 input { vertical-align: text-bottom; }
+.lt-ie7 input { vertical-align: text-bottom; }
 label, input[type=button], input[type=submit], button { cursor: pointer; }
 
 ::-moz-selection{ background: #422e14; color:#fff; text-shadow: none; }
@@ -63,7 +63,7 @@ a:link { -webkit-tap-highlight-color: #422e14; }
 
 html { overflow-y: scroll; }
 button {  width: auto; overflow: visible; }
-.ie7 img { -ms-interpolation-mode: bicubic; }
+.lt-ie8 img { -ms-interpolation-mode: bicubic; }
 
 .ir { display:block; text-indent:-999em; overflow:hidden; background-repeat: no-repeat; }
 .hidden { display:none; visibility:hidden; } 
@@ -170,6 +170,17 @@ nav .logo {
 	background: url(../img/logotype3.png) no-repeat;
 	text-indent: -9999px;
 }
+.icon-fb {
+    width: 25px;
+    height: 25px;
+    margin-top: 22px;
+    background: transparent url(../img/svg/icon-fb.svg) no-repeat 0 0;
+    background-size: 25px 25px;
+    text-indent: -9999px;
+}
+.no-svg .icon-fb {
+    background-image: url(../img/icon-fb.png);
+}
 
 
 #page {
@@ -257,17 +268,13 @@ section {
   background-position: 50% 0;
 }
 #products h2:hover {
-	opacity: 0.7;
 	background-color: rgba(255,255,255,0.15);
+    opacity: 0.7;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    /* IE 5-7 */
+    filter: alpha(opacity=70);
 }
-.ie6 #products h2:hover,.ie7 #products h2:hover{ 
-     /* For IE 5-7 */
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-}
-.ie8 #products h2:hover, .ie9 #products h2:hover {
-	/* For IE 8 (and 9, 10, 11?). Don't miss the added quotes */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-} 
 
 .product-info {
   overflow:hidden;
@@ -440,7 +447,7 @@ footer section {
     color: #222222;
 }
 
-.ie6 header, .ie7 header {
+.lt-ie8 header {
 	left: 0;
 }
 /* used before there is a video */
