@@ -5,6 +5,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        mainJsFileName: 'main.js',
 
         tag: {
             banner: '/*!\n' +
@@ -13,24 +14,50 @@ module.exports = function(grunt) {
                 ' * <%= pkg.url %>\n' +
                 ' * @version <%= pkg.version %>\n\n' +
                 ' * Copyright <%= pkg.copyright %>\n' +
+                ' * Copyright for plugin used: <%= pkg.url %>js/<%= mainJsFileName %>\n' +
                 ' */\n'
         },
 
-        concat: {
-            js: {
-                src: [
-                    '<%= pkg.bower_components %>/swfobject/swfobject/src/swfobject.js'
-                ],
-                dest: '<%= pkg.target %>/js/spl-game.js'
-            }
-        },
         jshint: {
             options: {
                 jshintrc: '.jshintrc'
             },
-            all: ['js/script.1.js']
+            all: ['js/script.js']
+        },
+        concat: {
+            js: {
+                src: [
+                    'js/plugins.js', 'js/script.js'
+                ],
+                dest: 'js/main.js'
+            }
         },
         copy: {
+            dev: {
+                files: [
+                    {
+                        src:
+                            ['js/main.js'],
+                        dest: 'js/main-min.js'
+                    },
+                    {
+                        src:
+                            ['css/style.css'],
+                        dest: 'css/style-min.css'
+                    }
+                ]
+            }
+        },
+        cssmin: {
+            minify: {
+                expand: true,
+                cwd: 'css/',
+                src: ['style.css'],
+                dest: 'css',
+                ext: '-min.css'
+            }
+        },
+        /*copy: {
             main: {
                 files: [
                     {
@@ -45,7 +72,7 @@ module.exports = function(grunt) {
                     }
                 ]
             }
-        },
+        },*/
 
         uglify: {
             options: {
@@ -54,15 +81,10 @@ module.exports = function(grunt) {
                 report: 'min'
             },
             js: {
-                options: {
-                    banner: '<%= tag.banner %>\n\n' +
-                            '/* <%= concat.js.src.join(", ").match(/(?:\\/([^,\/]+\\.js))/g).join(\', \').replace(/\\//g, "") %> */\n\n'
-                },
                 files: {
-                    'js/script.<%= pkg.version %>.js': 'js/script.1.js'
+                    'js/main-min.js': 'js/main.js'
                 }
-            },
-
+            }/*,
             jquery: {
                 options: {
                     banner: '',
@@ -71,7 +93,7 @@ module.exports = function(grunt) {
                 files: {
                     '<%= pkg.target %>/js/libs/jquery-1.7.2-min.js': ['<%= pkg.bower_components %>/jquery/jquery.js']
                 }
-            }
+            }*/
         },
 
         modernizr: {
@@ -131,15 +153,17 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-modernizr');
 
     // Default task.
-    grunt.registerTask('default', ['copy', 'concat:js', 'modernizr']);
-    grunt.registerTask('hint', ['jshint']);
+    //grunt.registerTask('default', ['copy', 'concat:js', 'modernizr']);
+    grunt.registerTask('default', ['concat:js']);
+    grunt.registerTask('dev', ['default', 'copy:dev']);
     grunt.registerTask('compress', ['default', 'uglify:js']);
-    grunt.registerTask('dist', ['hint','compress']);
+    grunt.registerTask('dist', ['jshint','compress', 'cssmin:minify']);
 
 };

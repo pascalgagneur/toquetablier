@@ -1,7 +1,7 @@
 {
     "name": "toque-tablier-2.0.0",
     "title": "Toque Tablier",
-    "url": "http://http://toqueettablier.ca/",
+    "url": "http://toqueettablier.ca/",
     "version": "2.0.0",
     "copyright": "Toque Tablier",
     "author": [
@@ -18,6 +18,7 @@
         "grunt-cli": "0.1.9",
         "grunt": "0.4.1",
         "grunt-contrib-jshint": "~0.6.3",
+        "grunt-contrib-cssmin": "~0.7.0",
         "grunt-contrib-uglify": "~0.2.2",
         "grunt-contrib-concat": "~0.3.0",
         "grunt-contrib-copy": "0.4.1",

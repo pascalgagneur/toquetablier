@@ -1,0 +1,879 @@
+window.log = function(){
+
+  log.history = log.history || []; 
+
+  log.history.push(arguments);
+
+  if(this.console){
+
+    console.log( Array.prototype.slice.call(arguments) );
+
+  }
+
+};
+
+
+
+/**
+
+ * jQuery.ScrollTo - Easy element scrolling using jQuery.
+
+ * Copyright (c) 2007-2009 Ariel Flesler - aflesler(at)gmail(dot)com | http://flesler.blogspot.com
+
+ * Dual licensed under MIT and GPL.
+
+ * Date: 5/25/2009
+
+ * @author Ariel Flesler
+
+ * @version 1.4.2
+
+ *
+
+ * http://flesler.blogspot.com/2007/10/jqueryscrollto.html
+
+ */
+
+;(function($){var h=$.scrollTo=function(a,b,c){$(window).scrollTo(a,b,c)};h.defaults={axis:'xy',duration:parseFloat($.fn.jquery)>=1.3?0:1,limit:true};h.window=function(a){return $(window)._scrollable()};$.fn._scrollable=function(){return this.map(function(){var a=this,isWin=!a.nodeName||$.inArray(a.nodeName.toLowerCase(),['iframe','#document','html','body'])!=-1;if(!isWin)return a;var b=(a.contentWindow||a).document||a.ownerDocument||a;return/webkit/i.test(navigator.userAgent)||b.compatMode=='BackCompat'?b.body:b.documentElement})};$.fn.scrollTo=function(e,f,g){if(typeof f=='object'){g=f;f=0}if(typeof g=='function')g={onAfter:g};if(e=='max')e=9e9;g=$.extend({},h.defaults,g);f=f||g.duration;g.queue=g.queue&&g.axis.length>1;if(g.queue)f/=2;g.offset=both(g.offset);g.over=both(g.over);return this._scrollable().each(function(){if(e==null)return;var d=this,$elem=$(d),targ=e,toff,attr={},win=$elem.is('html,body');switch(typeof targ){case'number':case'string':if(/^([+-]=?)?\d+(\.\d+)?(px|%)?$/.test(targ)){targ=both(targ);break}targ=$(targ,this);if(!targ.length)return;case'object':if(targ.is||targ.style)toff=(targ=$(targ)).offset()}$.each(g.axis.split(''),function(i,a){var b=a=='x'?'Left':'Top',pos=b.toLowerCase(),key='scroll'+b,old=d[key],max=h.max(d,a);if(toff){attr[key]=toff[pos]+(win?0:old-$elem.offset()[pos]);if(g.margin){attr[key]-=parseInt(targ.css('margin'+b))||0;attr[key]-=parseInt(targ.css('border'+b+'Width'))||0}attr[key]+=g.offset[pos]||0;if(g.over[pos])attr[key]+=targ[a=='x'?'width':'height']()*g.over[pos]}else{var c=targ[pos];attr[key]=c.slice&&c.slice(-1)=='%'?parseFloat(c)/100*max:c}if(g.limit&&/^\d+$/.test(attr[key]))attr[key]=attr[key]<=0?0:Math.min(attr[key],max);if(!i&&g.queue){if(old!=attr[key])animate(g.onAfterFirst);delete attr[key]}});animate(g.onAfter);function animate(a){$elem.animate(attr,f,g.easing,a&&function(){a.call(this,targ,g)})}}).end()};h.max=function(a,b){var c=b=='x'?'Width':'Height',scroll='scroll'+c;if(!$(a).is('html,body'))return a[scroll]-$(a)[c.toLowerCase()]();var d='client'+c,html=a.ownerDocument.documentElement,body=a.ownerDocument.body;return Math.max(html[scroll],body[scroll])-Math.min(html[d],body[d])};function both(a){return typeof a=='object'?a:{top:a,left:a}}})(jQuery);
+
+
+
+/**
+
+ * jQuery.LocalScroll - Animated scrolling navigation, using anchors.
+
+ * Copyright (c) 2007-2009 Ariel Flesler - aflesler(at)gmail(dot)com | http://flesler.blogspot.com
+
+ * Dual licensed under MIT and GPL.
+
+ * Date: 3/11/2009
+
+ * @author Ariel Flesler
+
+ * @version 1.2.7
+
+ **/
+
+;(function($){var h=location.href.replace(/#.*/,'');var i=$.localScroll=function(a){$('body').localScroll(a)};i.defaults={duration:1000,axis:'y',event:'click',stop:true,target:window};i.hash=function(a){if(location.hash){a=$.extend({},i.defaults,a);a.hash=false;if(a.reset){var d=a.duration;delete a.duration;$(a.target).scrollTo(0,a);a.duration=d}scroll(0,location,a)}};$.fn.localScroll=function(b){b=$.extend({},i.defaults,b);return b.lazy?this.bind(b.event,function(e){var a=$([e.target,e.target.parentNode]).filter(filter)[0];if(a)scroll(e,a,b)}):this.find('a,area').filter(filter).bind(b.event,function(e){scroll(e,this,b)}).end().end();function filter(){return!!this.href&&!!this.hash&&this.href.replace(this.hash,'')==h&&(!b.filter||$(this).is(b.filter))}};function scroll(e,a,b){var c=a.hash.slice(1),elem=document.getElementById(c)||document.getElementsByName(c)[0];if(!elem)return;if(e)e.preventDefault();var d=$(b.target);if(b.lock&&d.is(':animated')||b.onBefore&&b.onBefore(e,elem,d)===false)return;if(b.stop)d._scrollable().stop(true);if(b.hash){var f=b.offset;f=f&&f.top||f||0;var g=elem.id==c?'id':'name',$a=$('<a> </a>').attr(g,c).css({position:'absolute',top:$(window).scrollTop()+f,left:$(window).scrollLeft()});elem[g]='';$('body').prepend($a);location=a.hash;$a.remove();elem[g]=c}d.scrollTo(elem,b).trigger('notify.serialScroll',[elem])}})(jQuery);
+
+
+
+/*
+
+(function(doc){
+
+  var write = doc.write;
+
+  doc.write = function(q){ 
+
+    log('document.write(): ',arguments); 
+
+    if (/docwriteregexwhitelist/.test(q)) write.apply(doc,arguments);  
+
+  };
+
+})(document);
+
+*/
+
+
+
+/**
+
+ * jCarouselLite - jQuery plugin to navigate images/any content in a carousel style widget.
+
+ * @requires jQuery v1.2 or above
+
+ *
+
+ * http://gmarwaha.com/jquery/jcarousellite/
+
+ *
+
+ * Copyright (c) 2007 Ganeshji Marwaha (gmarwaha.com)
+
+ * Dual licensed under the MIT and GPL licenses:
+
+ * http://www.opensource.org/licenses/mit-license.php
+
+ * http://www.gnu.org/licenses/gpl.html
+
+ *
+
+ * Version: 1.0.1
+
+ * Note: Requires jquery 1.2 or above from version 1.0.1
+
+ */
+
+
+
+/**
+
+ * Creates a carousel-style navigation widget for images/any-content from a simple HTML markup.
+
+ *
+
+ * The HTML markup that is used to build the carousel can be as simple as...
+
+ *
+
+ *  <div class="carousel">
+
+ *      <ul>
+
+ *          <li><img src="image/1.jpg" alt="1"></li>
+
+ *          <li><img src="image/2.jpg" alt="2"></li>
+
+ *          <li><img src="image/3.jpg" alt="3"></li>
+
+ *      </ul>
+
+ *  </div>
+
+ *
+
+ * As you can see, this snippet is nothing but a simple div containing an unordered list of images.
+
+ * You don't need any special "class" attribute, or a special "css" file for this plugin.
+
+ * I am using a class attribute just for the sake of explanation here.
+
+ *
+
+ * To navigate the elements of the carousel, you need some kind of navigation buttons.
+
+ * For example, you will need a "previous" button to go backward, and a "next" button to go forward.
+
+ * This need not be part of the carousel "div" itself. It can be any element in your page.
+
+ * Lets assume that the following elements in your document can be used as next, and prev buttons...
+
+ *
+
+ * <button class="prev">&lt;&lt;</button>
+
+ * <button class="next">&gt;&gt;</button>
+
+ *
+
+ * Now, all you need to do is call the carousel component on the div element that represents it, and pass in the
+
+ * navigation buttons as options.
+
+ *
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev"
+
+ * });
+
+ *
+
+ * That's it, you would have now converted your raw div, into a magnificient carousel.
+
+ *
+
+ * There are quite a few other options that you can use to customize it though.
+
+ * Each will be explained with an example below.
+
+ *
+
+ * @param an options object - You can specify all the options shown below as an options object param.
+
+ *
+
+ * @option btnPrev, btnNext : string - no defaults
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev"
+
+ * });
+
+ * @desc Creates a basic carousel. Clicking "btnPrev" navigates backwards and "btnNext" navigates forward.
+
+ *
+
+ * @option btnGo - array - no defaults
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev",
+
+ *      btnGo: [".0", ".1", ".2"]
+
+ * });
+
+ * @desc If you don't want next and previous buttons for navigation, instead you prefer custom navigation based on
+
+ * the item number within the carousel, you can use this option. Just supply an array of selectors for each element
+
+ * in the carousel. The index of the array represents the index of the element. What i mean is, if the
+
+ * first element in the array is ".0", it means that when the element represented by ".0" is clicked, the carousel
+
+ * will slide to the first element and so on and so forth. This feature is very powerful. For example, i made a tabbed
+
+ * interface out of it by making my navigation elements styled like tabs in css. As the carousel is capable of holding
+
+ * any content, not just images, you can have a very simple tabbed navigation in minutes without using any other plugin.
+
+ * The best part is that, the tab will "slide" based on the provided effect. :-)
+
+ *
+
+ * @option mouseWheel : boolean - default is false
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      mouseWheel: true
+
+ * });
+
+ * @desc The carousel can also be navigated using the mouse wheel interface of a scroll mouse instead of using buttons.
+
+ * To get this feature working, you have to do 2 things. First, you have to include the mouse-wheel plugin from brandon.
+
+ * Second, you will have to set the option "mouseWheel" to true. That's it, now you will be able to navigate your carousel
+
+ * using the mouse wheel. Using buttons and mouseWheel or not mutually exclusive. You can still have buttons for navigation
+
+ * as well. They complement each other. To use both together, just supply the options required for both as shown below.
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev",
+
+ *      mouseWheel: true
+
+ * });
+
+ *
+
+ * @option auto : number - default is null, meaning autoscroll is disabled by default
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      auto: 800,
+
+   * });
+
+ * @desc You can make your carousel auto-navigate itself by specfying a millisecond value in this option.
+
+ * The value you specify is the amount of time between 2 slides. The default is null, and that disables auto scrolling.
+
+ * Specify this value and magically your carousel will start auto scrolling.
+
+ *
+
+ * @option speed : number - 200 is default
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev",
+
+ *      speed: 800
+
+ * });
+
+ * @desc Specifying a speed will slow-down or speed-up the sliding speed of your carousel. Try it out with
+
+ * different speeds like 800, 600, 1500 etc. Providing 0, will remove the slide effect.
+
+ *
+
+ * @option easing : string - no easing effects by default.
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev",
+
+ *      easing: "bounceout"
+
+ * });
+
+ * @desc You can specify any easing effect. Note: You need easing plugin for that. Once specified,
+
+ * the carousel will slide based on the provided easing effect.
+
+ *
+
+ * @option vertical : boolean - default is false
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev",
+
+ *      vertical: true
+
+ * });
+
+ * @desc Determines the direction of the carousel. true, means the carousel will display vertically. The next and
+
+ * prev buttons will slide the items vertically as well. The default is false, which means that the carousel will
+
+ * display horizontally. The next and prev items will slide the items from left-right in this case.
+
+ *
+
+ * @option circular : boolean - default is true
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev",
+
+ *      circular: false
+
+ * });
+
+ * @desc Setting it to true enables circular navigation. This means, if you click "next" after you reach the last
+
+ * element, you will automatically slide to the first element and vice versa. If you set circular to false, then
+
+ * if you click on the "next" button after you reach the last element, you will stay in the last element itself
+
+ * and similarly for "previous" button and first element.
+
+ *
+
+ * @option visible : number - default is 3
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev",
+
+ *      visible: 4
+
+ * });
+
+ * @desc This specifies the number of items visible at all times within the carousel. The default is 3.
+
+ * You are even free to experiment with real numbers. Eg: "3.5" will have 3 items fully visible and the
+
+ * last item half visible. This gives you the effect of showing the user that there are more images to the right.
+
+ *
+
+ * @option start : number - default is 0
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev",
+
+ *      start: 2
+
+ * });
+
+ * @desc You can specify from which item the carousel should start. Remember, the first item in the carousel
+
+ * has a start of 0, and so on.
+
+ *
+
+ * @option scrool : number - default is 1
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev",
+
+ *      scroll: 2
+
+ * });
+
+ * @desc The number of items that should scroll/slide when you click the next/prev navigation buttons. By
+
+ * default, only one item is scrolled, but you may set it to any number. Eg: setting it to "2" will scroll
+
+ * 2 items when you click the next or previous buttons.
+
+ *
+
+ * @option beforeStart, afterEnd : function - callbacks
+
+ * @example
+
+ * $(".carousel").jCarouselLite({
+
+ *      btnNext: ".next",
+
+ *      btnPrev: ".prev",
+
+ *      beforeStart: function(a) {
+
+ *          alert("Before animation starts:" + a);
+
+ *      },
+
+ *      afterEnd: function(a) {
+
+ *          alert("After animation ends:" + a);
+
+ *      }
+
+ * });
+
+ * @desc If you wanted to do some logic in your page before the slide starts and after the slide ends, you can
+
+ * register these 2 callbacks. The functions will be passed an argument that represents an array of elements that
+
+ * are visible at the time of callback.
+
+ *
+
+ *
+
+ * @cat Plugins/Image Gallery
+
+ * @author Ganeshji Marwaha/ganeshread@gmail.com
+
+ */
+
+
+
+(function($) {                                          // Compliant with jquery.noConflict()
+
+$.fn.jCarouselLite = function(o) {
+
+    o = $.extend({
+
+        btnPrev: null,
+
+        btnNext: null,
+
+        btnGo: null,
+
+        mouseWheel: false,
+
+        auto: null,
+
+
+
+        speed: 200,
+
+        easing: null,
+
+
+
+        vertical: false,
+
+        circular: true,
+
+        visible: 3,
+
+        start: 0,
+
+        scroll: 1,
+
+
+
+        beforeStart: null,
+
+        afterEnd: null
+
+    }, o || {});
+
+
+
+    return this.each(function() {                           // Returns the element collection. Chainable.
+
+
+
+        var running = false, animCss=o.vertical?"top":"left", sizeCss=o.vertical?"height":"width";
+
+        var div = $(this), ul = $("ul", div), tLi = $("li", ul), tl = tLi.size(), v = o.visible;
+
+
+
+        if(o.circular) {
+
+            ul.prepend(tLi.slice(tl-v-1+1).clone())
+
+              .append(tLi.slice(0,v).clone());
+
+            o.start += v;
+
+        }
+
+
+
+        var li = $("li", ul), itemLength = li.size(), curr = o.start;
+
+        div.css("visibility", "visible");
+
+
+
+        li.css({overflow: "hidden", float: o.vertical ? "none" : "left"});
+
+        ul.css({margin: "0", padding: "0", position: "relative", "list-style-type": "none", "z-index": "1"});
+
+        div.css({overflow: "hidden", position: "relative", "z-index": "2", left: "0px"});
+
+
+
+        var liSize = o.vertical ? height(li) : width(li);   // Full li size(incl margin)-Used for animation
+
+        var ulSize = liSize * itemLength;                   // size of full ul(total length, not just for the visible items)
+
+        var divSize = liSize * v;                           // size of entire div(total length for just the visible items)
+
+
+
+        li.css({width: li.width(), height: li.height()});
+
+        ul.css(sizeCss, ulSize+"px").css(animCss, -(curr*liSize));
+
+
+
+        div.css(sizeCss, divSize+"px");                     // Width of the DIV. length of visible images
+
+
+
+        if(o.btnPrev)
+
+            $(o.btnPrev).click(function() {
+
+                return go(curr-o.scroll);
+
+            });
+
+
+
+        if(o.btnNext)
+
+            $(o.btnNext).click(function() {
+
+                return go(curr+o.scroll);
+
+            });
+
+
+
+        if(o.btnGo)
+
+            $.each(o.btnGo, function(i, val) {
+
+                $(val).click(function() {
+
+                    return go(o.circular ? o.visible+i : i);
+
+                });
+
+            });
+
+
+
+        if(o.mouseWheel && div.mousewheel)
+
+            div.mousewheel(function(e, d) {
+
+                return d>0 ? go(curr-o.scroll) : go(curr+o.scroll);
+
+            });
+
+
+
+        if(o.auto)
+
+            setInterval(function() {
+
+                go(curr+o.scroll);
+
+            }, o.auto+o.speed);
+
+
+
+        function vis() {
+
+            return li.slice(curr).slice(0,v);
+
+        };
+
+
+
+        function go(to) {
+
+            if(!running) {
+
+
+
+                if(o.beforeStart)
+
+                    o.beforeStart.call(this, vis());
+
+
+
+                if(o.circular) {            // If circular we are in first or last, then goto the other end
+
+                    if(to<=o.start-v-1) {           // If first, then goto last
+
+                        ul.css(animCss, -((itemLength-(v*2))*liSize)+"px");
+
+                        // If "scroll" > 1, then the "to" might not be equal to the condition; it can be lesser depending on the number of elements.
+
+                        curr = to==o.start-v-1 ? itemLength-(v*2)-1 : itemLength-(v*2)-o.scroll;
+
+                    } else if(to>=itemLength-v+1) { // If last, then goto first
+
+                        ul.css(animCss, -( (v) * liSize ) + "px" );
+
+                        // If "scroll" > 1, then the "to" might not be equal to the condition; it can be greater depending on the number of elements.
+
+                        curr = to==itemLength-v+1 ? v+1 : v+o.scroll;
+
+                    } else curr = to;
+
+                } else {                    // If non-circular and to points to first or last, we just return.
+
+                    if(to<0 || to>itemLength-v) return;
+
+                    else curr = to;
+
+                }                           // If neither overrides it, the curr will still be "to" and we can proceed.
+
+
+
+                running = true;
+
+
+
+                ul.animate(
+
+                    animCss == "left" ? { left: -(curr*liSize) } : { top: -(curr*liSize) } , o.speed, o.easing,
+
+                    function() {
+
+                        if(o.afterEnd)
+
+                            o.afterEnd.call(this, vis());
+
+                        running = false;
+
+                    }
+
+                );
+
+                // Disable buttons when the carousel reaches the last/first, and enable when not
+
+                if(!o.circular) {
+
+                    $(o.btnPrev + "," + o.btnNext).removeClass("disabled");
+
+                    $( (curr-o.scroll<0 && o.btnPrev)
+
+                        ||
+
+                       (curr+o.scroll > itemLength-v && o.btnNext)
+
+                        ||
+
+                       []
+
+                     ).addClass("disabled");
+
+                }
+
+
+
+            }
+
+            return false;
+
+        };
+
+    });
+
+};
+
+
+
+function css(el, prop) {
+
+    return parseInt($.css(el[0], prop)) || 0;
+
+};
+
+function width(el) {
+
+    return  el[0].offsetWidth + css(el, 'marginLeft') + css(el, 'marginRight');
+
+};
+
+function height(el) {
+
+    return el[0].offsetHeight + css(el, 'marginTop') + css(el, 'marginBottom');
+
+};
+
+
+
+})(jQuery);
+/* Author: Pascal Gagneur, pascal@gagneur.se */
+/*globals google, log */
+var initMap;
+(function($, log) {
+    "use strict";
+    $(document).ready(function() {
+        $('nav').localScroll();
+
+
+        if (/mobile/i.test(navigator.userAgent) && !location.hash) {
+            setTimeout(function () {
+                if (!window.pageYOffset) {
+                    window.scrollTo(0, 1);
+                }
+            }, 1000);
+        }
+        function createRetailSelector() {
+            var $select,
+                NO_FILTER = 'Tous',
+                FILTER_PREFIX = "filter_",
+                $retailersAdress = $('.retailers-adress');
+
+            $select = $('<select>');
+            $select.attr('id', 'filter' );
+            $select.append('<option>' + NO_FILTER );
+
+            $retailersAdress.find('h2').each(function () {
+                var $h2 = $(this),
+                    text = $h2.text();
+                $h2.attr('id', FILTER_PREFIX + text);
+                $select.append('<option>' + text );
+            });
+            $retailersAdress.first().before($select);
+
+            function filterRetail() {
+                var selectedValue = $('#filter').find('option:selected').text();
+                if (selectedValue === NO_FILTER) {
+                    $retailersAdress.find('h2,ul').show();
+                } else {
+                    $retailersAdress.find('h2,ul').hide();
+                    $("#" + FILTER_PREFIX + selectedValue).slideToggle().find('~ul').slideToggle();
+                }
+            }
+            $select.on('change', filterRetail);
+            filterRetail();
+        }
+        createRetailSelector();
+
+        $('#products').find('h2').click(function() {
+            $(this).next().slideToggle('fast');
+            return false;
+        });
+
+        function initCarousel() {
+            var $banner = $("#banner"),
+            bannerSize = $banner.find("li").size(),
+            btnGoArray = [],
+            i;
+            if (bannerSize > 1) {
+
+                for (i=0; i < bannerSize; i++) {
+                    btnGoArray[i] = ".nav-item-"+i;
+                }
+                $banner.jCarouselLite({
+                    visible:1,
+                    auto: $banner.data("delay"),
+                    speed: $banner.data("speed"),
+                    circular:true,
+                    btnNext: ".next",
+                    btnGo: btnGoArray,
+                    afterEnd: function(a) {
+                        var itemName;
+                        //banner-nav-item
+                        $('.banner-nav').removeClass('selected');
+                        itemName = a.attr('class');
+                        itemName = itemName.replace('banner','nav');
+                        $('.'+itemName).addClass('selected');
+                    }
+                });
+            }
+        }
+        initCarousel();
+
+        function initialize() {
+            var myLatlng = new google.maps.LatLng(40.65, -73.95),
+                myOptions = {
+                    zoom: 5,
+                    center: myLatlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                },
+                map = new google.maps.Map(
+                    document.getElementById("map_canvas"),
+                    myOptions),
+                nyLayer = new google.maps.KmlLayer(
+                    'http://maps.google.se/maps/ms?ie=UTF8&hl=sv&vps=1&jsv=284c&oe=UTF8&msa=0&msid=210826295852231512346.0004aba22f40da572eb9a&output=kml',{  map: map});
+
+            google.maps.event.addListener(nyLayer, 'click', function(kmlEvent) {
+                //var text = kmlEvent.featureData.description;
+                log(kmlEvent.featureData);
+            });
+
+            /*function showInContentWindow(text) {
+                var sidediv = document.getElementById('content_window');
+                sidediv.innerHTML = text;
+            }*/
+        }
+
+
+        function loadMap() {
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap";
+            document.body.appendChild(script);
+        }
+        initMap = initialize;
+        loadMap();
+        //http://maps.google.se/maps/ms?ie=UTF8&hl=sv&vps=1&jsv=284c&oe=UTF8&msa=0&msid=210826295852231512346.0004aba22f40da572eb9a&output=kml
+        //http://maps.google.se/maps/ms?ie=UTF8&hl=sv&vps=1&jsv=284c&oe=UTF8&msa=0&msid=115683233009724371429.0004928397e85cc046e76&output=kml
+    });
+}(jQuery,log));

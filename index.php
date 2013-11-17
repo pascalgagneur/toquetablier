@@ -18,7 +18,7 @@
   <meta property="fb:admins" content="100001793217467" />
   <meta name="author" content="">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="css/style.1.css">
+  <link rel="stylesheet" href="css/style-min.css">
   <script src="js/modernizr-1.6.min.js"></script>
 </head>
 <body>
@@ -42,7 +42,6 @@
         <?php include_once('banner.html.php') ?>
     </section>
     <?php flush(); ?>
-    conseils
     <section id="products">
         <?php include_once('products.html.php') ?>
     </section>
@@ -106,8 +105,7 @@ Les petits formats font d’élégants marques-places et de délicieuses bonbonn
 <script>!window.jQuery && document.write('<script src="js/jquery-2.0.3.min.js"><\/script>')</script>
 <!--<![endif]-->
 
-<script src="js/plugins.1.js"></script>
-<script src="js/script.1.js"></script>
+<script src="js/main-min.js"></script>
 <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-25534529-1']);

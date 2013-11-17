@@ -177,6 +177,7 @@ nav .logo {
     background: transparent url(../img/svg/icon-fb.svg) no-repeat 0 0;
     background-size: 25px 25px;
     text-indent: -9999px;
+    margin-left: 10px;
 }
 .no-svg .icon-fb {
     background-image: url(../img/icon-fb.png);
