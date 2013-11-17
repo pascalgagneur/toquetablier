@@ -17,6 +17,7 @@ var initMap;
         function createRetailSelector() {
             var $select,
                 NO_FILTER = 'Tous',
+                FILTER_PREFIX = "filter_",
                 $retailersAdress = $('.retailers-adress');
 
             $select = $('<select>');
@@ -24,7 +25,10 @@ var initMap;
             $select.append('<option>' + NO_FILTER );
 
             $retailersAdress.find('h2').each(function () {
-                $select.append('<option>' + $(this).text() );
+                var $h2 = $(this),
+                    text = $h2.text();
+                $h2.attr('id', FILTER_PREFIX + text);
+                $select.append('<option>' + text );
             });
             $retailersAdress.first().before($select);
 
@@ -34,7 +38,7 @@ var initMap;
                     $retailersAdress.find('h2,ul').show();
                 } else {
                     $retailersAdress.find('h2,ul').hide();
-                    $("h2:contains('" + selectedValue + "')").slideToggle().find('~ul').slideToggle();
+                    $("#" + FILTER_PREFIX + selectedValue).slideToggle().find('~ul').slideToggle();
                 }
             }
             $select.on('change', filterRetail);
@@ -102,15 +106,15 @@ var initMap;
         }
 
 
-        function loadScript() {
+        function loadMap() {
             var script = document.createElement("script");
             script.type = "text/javascript";
             script.src = "http://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap";
             document.body.appendChild(script);
         }
         initMap = initialize;
-        loadScript();
+        loadMap();
         //http://maps.google.se/maps/ms?ie=UTF8&hl=sv&vps=1&jsv=284c&oe=UTF8&msa=0&msid=210826295852231512346.0004aba22f40da572eb9a&output=kml
-    //http://maps.google.se/maps/ms?ie=UTF8&hl=sv&vps=1&jsv=284c&oe=UTF8&msa=0&msid=115683233009724371429.0004928397e85cc046e76&output=kml
+        //http://maps.google.se/maps/ms?ie=UTF8&hl=sv&vps=1&jsv=284c&oe=UTF8&msa=0&msid=115683233009724371429.0004928397e85cc046e76&output=kml
     });
 }(jQuery,log));
