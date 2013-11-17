@@ -284,11 +284,14 @@ section {
   margin: 0 0 1px 0;
 
 }
-.product-text {
+.product-text, .conseil-text {
   background-color: #faf5f0;
   padding: 22px 25px;
   text-align: center;
   border-bottom:  1px solid;
+}
+.conseil-text {
+    border-bottom: 0;
 }
 
 .js .product-info {
