@@ -161,9 +161,10 @@ module.exports = function(grunt) {
 
     // Default task.
     //grunt.registerTask('default', ['copy', 'concat:js', 'modernizr']);
-    grunt.registerTask('default', ['concat:js']);
-    grunt.registerTask('dev', ['default', 'copy:dev']);
-    grunt.registerTask('compress', ['default', 'uglify:js']);
-    grunt.registerTask('dist', ['jshint','compress', 'cssmin:minify']);
+    grunt.registerTask('concatit', ['concat:js']);
+    grunt.registerTask('dev', ['concatit', 'copy:dev']);
+    grunt.registerTask('compress', ['concatit', 'uglify:js']);
+    grunt.registerTask('default', ['jshint','compress', 'cssmin:minify']);
+    grunt.registerTask('dist', ['default']);
 
 };

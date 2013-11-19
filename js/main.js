@@ -774,14 +774,16 @@ var initMap;
             }, 1000);
         }
         function createRetailSelector() {
-            var $select,
-                NO_FILTER = 'Tous',
+            var FILTER_CLASS = 'filter-list',
+                PRE_FILTER_TEXT = 'Choisissez votre région:',
+                NO_FILTER_TEXT = 'Tous',
                 FILTER_PREFIX = "filter_",
+                $select,
                 $retailersAdress = $('.retailers-adress');
 
             $select = $('<select>');
             $select.attr('id', 'filter' );
-            $select.append('<option>' + NO_FILTER );
+            $select.append('<option>' + NO_FILTER_TEXT );
 
             $retailersAdress.find('h2').each(function () {
                 var $h2 = $(this),
@@ -790,14 +792,16 @@ var initMap;
                 $select.append('<option>' + text );
             });
             $retailersAdress.first().before($select);
+            $select.before('<p>' + PRE_FILTER_TEXT + '</p>');
 
             function filterRetail() {
                 var selectedValue = $('#filter').find('option:selected').text();
-                if (selectedValue === NO_FILTER) {
-                    $retailersAdress.find('h2,ul').show();
+                if (selectedValue === NO_FILTER_TEXT) {
+                    $retailersAdress.removeClass(FILTER_CLASS).find('h2,ul').show();
                 } else {
-                    $retailersAdress.find('h2,ul').hide();
-                    $("#" + FILTER_PREFIX + selectedValue).slideToggle().find('~ul').slideToggle();
+
+                    $retailersAdress.addClass(FILTER_CLASS).find('h2,ul').hide();
+                    $("#" + FILTER_PREFIX + selectedValue).find('+ul').slideToggle();
                 }
             }
             $select.on('change', filterRetail);

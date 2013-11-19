@@ -171,16 +171,19 @@ nav .logo {
 	text-indent: -9999px;
 }
 .icon-fb {
-    width: 25px;
-    height: 25px;
-    margin-top: 22px;
+    width: 19px;
+    margin-top: 28px;
     background: transparent url(../img/svg/icon-fb.svg) no-repeat 0 0;
-    background-size: 25px 25px;
+    background-size: 19px 19px;
     text-indent: -9999px;
-    margin-left: 10px;
 }
 .no-svg .icon-fb {
     background-image: url(../img/icon-fb.png);
+}
+#filter {
+    width: 163px;
+    font-size: 2em;
+    margin-bottom: .4em;
 }
 
 
@@ -324,9 +327,6 @@ section ul {
 .vcard .postal-code {
    display: inline;
 }
-#filter{
-    width: 100%;
-}
 #retailers h2{
   border-bottom: 1px solid;
   padding-bottom: 3px;
@@ -342,7 +342,9 @@ section ul {
 .retailers-adress + .retailers-adress  {
   margin-left: 18px;
 }
-
+.retailers-adress.filter-list {
+    margin-left: 0;
+}
 #map_canvas{
   display: none;
 }
@@ -496,10 +498,22 @@ footer section {
 @media screen and (max-device-width: 480px) {
   	html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } 
   	section, .copyright{ font-size: 2.3em;}
+    section, #contact {padding-top: 120px;}
+    section + section {margin-top: -60px;}
+    header { height: 110px;}
   	nav a {font-size: 2em;margin-top: 15px;}
+    #filter{
+        width: 100%;
+        font-size: 1.2em;
+    }
+    .icon-fb {
+        width: 35px;
+        margin-top: 15px;
+        background-size: 35px;
+    }
 	.column, .column.last{ float: none; width: 100%; padding: 3% 0 0; }
 	.js .product-info { display: block; }
 	.retailers-adress { width: 100%; float: none;}
-	.retailers-adress + .retailers-adress  { margin-left: 0; margin-top: 6%; }
+	.retailers-adress + .retailers-adress  { margin-left: 0;}
 	.copyright span {top: -17px;}
 }
