@@ -117,6 +117,6 @@ Les petits formats font d’élégants marques-places et de délicieuses bonbonn
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 </script>
-
+<script src="http://localhost:35729/livereload.js" type="text/javascript"></script>
 </body>
 </html>

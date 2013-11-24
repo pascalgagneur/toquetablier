@@ -145,6 +145,27 @@ module.exports = function(grunt) {
 
             // Have custom Modernizr tests? Add paths to their location here.
             "customTests" : []
+        },
+
+        watch: {
+            all: {
+                // We watch and compile sass files as normal but don't live reload here
+                files: ['js/*.js', 'css/*.css'],
+                tasks: ['dev']
+            },
+
+            livereload: {
+                options: {
+                    livereload: true,
+                    spawn: false
+                },
+
+                files: [
+                    'js/*.js',
+                    'css/*.css'
+
+                ]
+            }
         }
 
 
@@ -158,6 +179,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-modernizr');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task.
     //grunt.registerTask('default', ['copy', 'concat:js', 'modernizr']);
