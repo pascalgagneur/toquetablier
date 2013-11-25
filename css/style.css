@@ -181,6 +181,7 @@ nav .logo {
     background-image: url(../img/icon-fb.png);
 }
 #filter {
+    display: block;
     width: 163px;
     font-size: 2em;
     margin-bottom: .4em;
