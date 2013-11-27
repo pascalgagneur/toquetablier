@@ -1,25 +1,26 @@
 <h1><span>Conseils</span></h1>
 <article>
 
-        <img class="product-image" src="img/conseil_01.jpg" alt="" width="890" height="567" />
+        <img class="product-image" src="img/conseil_01.jpg" alt="" width="890" height="345" />
         <p class="conseil-text">
-            L'endroit idéal pour conserver votre gâteau est dans un endroit frais et sec.
-            Afin de faciliter la coupe, nous conseillons de réfrigérer votre gâteau pendant environ 5 heures. En le coupant froid, vous éviterez de l’émietter.
+            Nous conseillons de conserver votre gâteau dans un endroit frais et sec. Afin de faciliter la coupe, réfrigérer préalablement environ 5 heures. En le coupant froid, vous éviterez de l'émietter.
         </p>
-        <img class="product-image" src="img/conseil_02.jpg" alt="" width="890" height="567" />
+        <img class="product-image" src="img/conseil_02.jpg" alt="" width="890" height="452" />
         <p class="conseil-text">
-            À l’aide d’un couteau à lame droite bien aiguisé, couper de mince tranches d’environ 5 mm.
+            À l'aide d'un couteau à lame droite bien aiguisé, couper des tranches minces, d'environ 5 mm.
         </p>
-    <img class="product-image" src="img/conseil_03.jpg" alt="" width="890" height="567" />
+    <img class="product-image" src="img/conseil_03.jpg" alt="" width="890" height="354" />
     <p class="conseil-text">
-        Servir tempéré
-        <br/>
-        En dessert accompagné de cidre de glace ou de porto
-        Dans un plateau de fromages fins ( cheddars fort, tommes, etc.) accompagné de figues fraîches, suprêmes d’orange.
-        En biscotte, pour accompagner le foie gras.
-        <br/><br/>
-        Pour obtenir de belles biscottes :
-        Congeler le gâteau puis à l’aide d’un couteau très bien aiguisé, trancher-le le plus finement possible, enfourner les tranches à 325 F° environ 15 minutes. Laisser refroidir les tranches avant de les utiliser.
-    </p>
+Pour profiter pleinement des saveurs de votre gâteau, servez-le à la température ambiante. En dessert, il s'accompagne délicieusement de cidre de glace ou de porto. Servez-le également dans un plateau de fromages fins accompagné de pommes, de figues fraîches et de suprêmes d'orange.
+<br/><br/>
+Pensez aussi à en faire des biscottes pour accompagner le foie gras. Il suffit de congeler le gâteau, puis à l'aide d'un couteau bien aiguisé, le trancher très finement. Enfournez les tranches à 325 F° environ 15 minutes et laisser refroidir avant de les garnir.
+        </p>
 
 </article>
+
+
+
+
+
+
+
