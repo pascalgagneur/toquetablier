@@ -1,5 +1,9 @@
     <h1><span>Détaillants</span></h1>
-    <p>Veuillez noter que selon la saison, ces points de vente n’offrent pas tous les produits Toque et Tablier. Nous vous conseillons de téléphoner avant de vous déplacer afin de vérifier la disponibilité des produits.<br><br><h3>Vous pouvez acheter en ligne sur <a href="http://www.terroirsquebec.com/producteur/0061_Toque_et_tablier.htm">terroirquebec.com</a></h3> 
+    <p>Veuillez noter que selon la saison, ces points de vente n’offrent pas tous les produits Toque et Tablier.
+        Nous vous conseillons de téléphoner avant de vous déplacer afin de vérifier la disponibilité des produits.
+        <br>
+        <br>
+    <h3>Vous pouvez acheter en ligne sur <a href="http://www.terroirsquebec.com/producteur/0061_Toque_et_tablier.htm" target="_blank">terroirquebec.com</a></h3>
         <br><br>
         </p>
       <div id="map_canvas">Loading Google maps...</div>

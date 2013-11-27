@@ -94,7 +94,7 @@ Les petits formats font d’élégants marques-places et de délicieuses bonbonn
         <img src="img/gateauxvrac.jpg" alt="Gateaux Le Pretentieux avec pastille de chocolat" width="427" height="200" />
       </div>
     </section>
-    <p class="copyright"><span>&copy; Toque et Tablier 2012</span></p>
+    <p class="copyright"><span>&copy; Toque et Tablier 2013</span></p>
 </footer>
 <!--[if lt IE 9]>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

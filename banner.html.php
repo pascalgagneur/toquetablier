@@ -4,7 +4,7 @@
       <img class="next" src="img/banniere/MVP_2013.jpg" alt="Marche du Vieux Port de Quebec" width="890" height="490" />
     </li>
     <li class="banner-item-1">
-      <img class="next" src="img/CoffretDegustationBanniere.jpg" alt="Nouveau! Le Coffret Degustation" width="890" height="490" />
+      <img class="next" src="img/coffretdegustationbanniere.jpg" alt="Nouveau! Le Coffret Degustation" width="890" height="490" />
     </li>
     <li class="banner-item-2">
       <img class="next" src="img/banniere/MCN_2013.jpg" alt="Marche Casse-Noisette" width="890" height="490" />
